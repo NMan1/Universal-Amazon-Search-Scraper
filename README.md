@@ -1,4 +1,4 @@
-# Amazon-Web-Scraper
+# Amazon-Search-Scraper
 ##### Scans (scrapes) a given link from an amazon search and outputs all product names and prices to a .csv file (used in Microsoft Word, Notepad etc)
 
 **Usage**
