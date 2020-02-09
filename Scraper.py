@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup as soup  # HTML data structure
 from urllib.request import urlopen as uReq  # Web client
-import csv
 
 # url = "https://www.amazon.com/s?k=iphone&ref=nb_sb_noss_2"
 url = "https://www.amazon.com/s?k=dog+leash&crid=J1BUVMV43F9M&sprefix=dog+le%2Caps%2C218&ref=nb_sb_ss_i_1_6"
@@ -12,8 +11,7 @@ uClient = uReq(url)
 page_soup = soup(uClient.read(), "html.parser")
 uClient.close()
 
-for container in page_soup.find_all("div", {
-    "class": "sg-col-4-of-12 sg-col-8-of-16 sg-col-16-of-24 sg-col-12-of-20 sg-col-24-of-32 sg-col sg-col-28-of-36 sg-col-20-of-28"}):
+for container in page_soup.find_all("div", { "class": "sg-col-4-of-12 sg-col-8-of-16 sg-col-16-of-24 sg-col-12-of-20 sg-col-24-of-32 sg-col sg-col-28-of-36 sg-col-20-of-28"}):
     price_html = container.find("span", attrs={"class": "a-offscreen"})
     name_html = container.find("span", attrs={"class": "a-size-medium a-color-base a-text-normal"})
     # shipping_html = container.find("span", attrs={"dir": "auto"})
